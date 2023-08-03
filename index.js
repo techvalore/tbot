@@ -54,10 +54,10 @@ const venenoTrafficBot = async id => {
 	let pass = args.pass;
 	let miliseconds = (args.time == 'random') ? randomTimeFromInterval(60, 300) : (args.time * 6000) / 6;
 	
-	//let browsers = ['android-browser','chrome','firefox','internet-explorer','opera','safari'];
-	//let browser = browsers.randomElement();
-	//let userAgentObj = require("./useragent/"+browser+".json");
-	let userAgentObj = require("./useragent/most-common.json");
+	let browsers = ['android-browser','chrome','firefox','internet-explorer','opera','safari'];
+	let browser = browsers.randomElement();
+	let userAgentObj = require("./useragent/"+browser+".json");
+	//let userAgentObj = require("./useragent/most-common.json");
 	let obj = JSON.parse(JSON.stringify(userAgentObj));
 	let ua = obj.randomElement().ua;
 	let info = platform.parse(ua); // Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7.2; en; rv:2.0) Gecko/20100101 Firefox/4.0 Opera 11.52
