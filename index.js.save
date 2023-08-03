@@ -106,7 +106,7 @@ const venenoTrafficBot = async id => {
 	let randomScreenElement = screenArray.randomElement();
 	
 	const proxyNightmare = nightmare({
-		executionTimeout: miliseconds*4, // in ms time spent per page * number of links to be crawled
+		executionTimeout: 1000000, // in ms
 		waitTimeout: 1000000, // in ms		
 		switches: {
 			'proxy-server': proxy, // set the proxy server here ...	
@@ -122,9 +122,8 @@ const venenoTrafficBot = async id => {
 	let utm_medium = ['cpc', 'Organic'];
 	let utm_campaign = ['', ''];
 	let utm_term = ['ppplayer','ppplayer+music','music', 'online', 'listen+online+music', 'ppplayer+online', 'play+music', 'digital', 'ppplayer+playlist', 'artist', 'playlist', 'ppplayer+web'];
-
-        addtourl = url.includes('?') ? '&' : '?';
-	addtourl = utm_source != '' ? addtourl+'utm_source='+ utm_source.randomElement() : addtourl;
+	
+	addtourl = utm_source != '' ? '?utm_source='+ utm_source.randomElement() : '';
 	addtourl = utm_source != '' && utm_medium != '' ? addtourl+'&utm_medium='+utm_medium.randomElement() : addtourl;
 	addtourl = utm_source != '' && utm_campaign != '' ? addtourl+'&utm_campaign='+utm_campaign.randomElement() : addtourl;
 	addtourl = utm_source != '' && utm_term != '' ? addtourl+'&utm_term='+utm_term.randomElement() : addtourl;
